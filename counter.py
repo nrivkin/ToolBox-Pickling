@@ -30,6 +30,12 @@ def update_counter(file_name, reset=False):
     >>> update_counter('blah2.txt')
     2
     """
+    if os.path.exists(file_name) == False:
+        fout = open(file_name, 'w')
+        count = 1
+        store = pickle.dumps(count)
+        fout.write(store)
+        fout.close()
     pass
 
 if __name__ == '__main__':
